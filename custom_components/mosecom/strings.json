@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Setup Moscow Air Quality Monitoring",
+        "description": "Select a monitoring station from the list. The integration will automatically detect which gases are measured at this location.",
+        "data": {
+          "station": "Station",
+          "name": "Location Name (optional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the monitoring station",
+      "station_required": "Please select a monitoring station",
+      "unknown": "Unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "This monitoring station is already configured"
+    }
+  },
+  "title": "Moscow Air Quality Monitoring"
+}

@@ -1,0 +1,97 @@
+# Example configuration for Moscow Air Quality Monitoring integration
+
+# This integration uses the UI for configuration, but here are some examples
+# of how you might use the sensors in your Home Assistant setup.
+
+# Example 1: Display air quality sensors on a dashboard
+title: Air Quality
+cards:
+  - type: entities
+    title: Moscow Air Quality - Moskvorechye-Saburovo
+    entities:
+      - entity: sensor.mosecom_moskvorechye_saburovo_co
+        name: CO (mg/m³)
+      - entity: sensor.mosecom_moskvorechye_saburovo_co_pdk
+        name: CO (% ПДК)
+      - entity: sensor.mosecom_moskvorechye_saburovo_no2
+        name: NO2 (mg/m³)
+      - entity: sensor.mosecom_moskvorechye_saburovo_no2_pdk
+        name: NO2 (% ПДК)
+      - entity: sensor.mosecom_moskvorechye_saburovo_pm10
+        name: PM10 (mg/m³)
+      - entity: sensor.mosecom_moskvorechye_saburovo_pm10_pdk
+        name: PM10 (% ПДК)
+
+# Example 2: Create a template sensor for air quality index
+template:
+  - sensor:
+      - name: "Air Quality Index"
+        unit_of_measurement: ""
+        state: >
+          {% set co = states('sensor.mosecom_moskvorechye_saburovo_co_pdk') | float(0) %}
+          {% set no2 = states('sensor.mosecom_moskvorechye_saburovo_no2_pdk') | float(0) %}
+          {% set pm10 = states('sensor.mosecom_moskvorechye_saburovo_pm10_pdk') | float(0) %}
+          {% set max_value = [co, no2, pm10] | max %}
+          {% if max_value < 50 %}
+            Good
+          {% elif max_value < 100 %}
+            Moderate
+          {% elif max_value < 150 %}
+            Unhealthy for Sensitive Groups
+          {% elif max_value < 200 %}
+            Unhealthy
+          {% else %}
+            Very Unhealthy
+          {% endif %}
+
+# Example 3: Automation for high pollution levels
+automation:
+  - alias: "High Pollution Alert"
+    description: "Send notification when any pollutant exceeds safe levels"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.mosecom_moskvorechye_saburovo_co_pdk
+        above: 100
+      - platform: numeric_state
+        entity_id: sensor.mosecom_moskvorechye_saburovo_no2_pdk
+        above: 100
+      - platform: numeric_state
+        entity_id: sensor.mosecom_moskvorechye_saburovo_pm10_pdk
+        above: 100
+    condition:
+      - condition: state
+        entity_id: input_boolean.pollution_alerts_enabled
+        state: "on"
+    action:
+      - service: notify.mobile_app_your_phone
+        data:
+          title: "High Pollution Alert"
+          message: >
+            High pollution level detected!
+            CO: {{ states('sensor.mosecom_moskvorechye_saburovo_co') }} mg/m³ ({{ states('sensor.mosecom_moskvorechye_saburovo_co_pdk') }}% ПДК)
+            NO2: {{ states('sensor.mosecom_moskvorechye_saburovo_no2') }} mg/m³ ({{ states('sensor.mosecom_moskvorechye_saburovo_no2_pdk') }}% ПДК)
+            PM10: {{ states('sensor.mosecom_moskvorechye_saburovo_pm10') }} mg/m³ ({{ states('sensor.mosecom_moskvorechye_saburovo_pm10_pdk') }}% ПДК)
+
+# Example 4: Create a graph card for historical data
+# (Note: This requires the history component to be enabled)
+cards:
+  - type: history-graph
+    title: Air Quality History
+    entities:
+      - sensor.mosecom_moskvorechye_saburovo_co
+      - sensor.mosecom_moskvorechye_saburovo_no2
+      - sensor.mosecom_moskvorechye_saburovo_pm10
+    hours_to_show: 24
+    refresh_interval: 300
+
+# Example 5: Create a gauge card for quick visualization
+cards:
+  - type: gauge
+    entity: sensor.mosecom_moskvorechye_saburovo_co_pdk
+    name: CO Level (% ПДК)
+    min: 0
+    max: 200
+    severity:
+      green: 50
+      yellow: 100
+      red: 150

@@ -1,0 +1,12 @@
+{
+  "domain": "mosecom",
+  "name": "Moscow Air Quality Monitoring",
+  "codeowners": ["@p1ne"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/p1ne/mosecom-integration",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/p1ne/mosecom-integration/issues",
+  "requirements": [],
+  "version": "3.1.0"
+}
