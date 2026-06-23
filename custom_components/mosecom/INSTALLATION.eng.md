@@ -43,7 +43,7 @@
    - Open HACS in Home Assistant
    - Go to **Settings** → **Custom Repositories**
    - Click **Add**
-   - Enter the repository URL: `https://github.com/p1ne/mosecom`
+   - Enter the repository URL: `https://github.com/p1ne/mosecom-integration`
    - Select category: **Integration**
    - Click **Add**
 
@@ -76,10 +76,10 @@
 3. **Clone or download the integration**
    ```bash
    # If you have git installed
-   git clone https://github.com/p1ne/mosecom.git mosecom
+   git clone https://github.com/p1ne/mosecom-integration.git mosecom
    
    # Or download and extract manually
-   wget https://github.com/p1ne/mosecom/archive/main.zip
+   wget https://github.com/p1ne/mosecom-integration/archive/main.zip
    unzip main.zip
    mv mosecom-main mosecom
    ```
@@ -198,5 +198,5 @@ After installation, verify that everything is working:
 ## Support
 
 For issues, questions, or feature requests:
-- GitHub Issues: https://github.com/p1ne/mosecom/issues
+- GitHub Issues: https://github.com/p1ne/mosecom-integration/issues
 - Check the main README.md for usage examples and troubleshooting tips

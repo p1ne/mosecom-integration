@@ -1,7 +1,7 @@
 # Мосэкомониторинг - Данные качества воздуха
 
-[![GitHub](https://img.shields.io/github/license/p1ne/mosecom)](https://github.com/p1ne/mosecom)
-[![GitHub stars](https://img.shields.io/github/stars/p1ne/mosecom)](https://github.com/p1ne/mosecom)
+[![GitHub](https://img.shields.io/github/license/p1ne/mosecom-integration)](https://github.com/p1ne/mosecom-integration)
+[![GitHub stars](https://img.shields.io/github/stars/p1ne/mosecom-integration)](https://github.com/p1ne/mosecom-integration)
 
 Этот репозиторий содержит инструменты для получения и обработки данных о качестве воздуха с официального сайта Мосэкомониторинг (mosecom.mos.ru).
 
@@ -43,7 +43,7 @@ python mosecom_extractor.py --help
 
 ## Репозиторий
 
-GitHub: https://github.com/p1ne/mosecom
+GitHub: https://github.com/p1ne/mosecom-integration
 
 ## Лицензия
 

@@ -19,7 +19,7 @@ This integration allows you to monitor air quality in Moscow in real-time using 
 1. Open HACS in your Home Assistant
 2. Go to "Integrations"
 3. Click on the three dots in the top right corner and select "Custom repositories"
-4. Add `https://github.com/p1ne/mosecom` as a repository of type "Integration"
+4. Add `https://github.com/p1ne/mosecom-integration` as a repository of type "Integration"
 5. Search for "Moscow Air Quality Monitoring" and install it
 6. Restart Home Assistant
 

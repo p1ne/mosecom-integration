@@ -1,7 +1,7 @@
 # Moscow Air Quality Monitoring
 
-[![GitHub](https://img.shields.io/github/license/p1ne/mosecom)](https://github.com/p1ne/mosecom)
-[![GitHub stars](https://img.shields.io/github/stars/p1ne/mosecom)](https://github.com/p1ne/mosecom)
+[![GitHub](https://img.shields.io/github/license/p1ne/mosecom-integration)](https://github.com/p1ne/mosecom-integration)
+[![GitHub stars](https://img.shields.io/github/stars/p1ne/mosecom-integration)](https://github.com/p1ne/mosecom-integration)
 
 This repository contains tools for fetching and processing air quality data from the official Moscow Air Quality Monitoring website (mosecom.mos.ru).
 
@@ -43,7 +43,7 @@ The integration is available through HACS (Home Assistant Community Store) or ca
 
 ## Repository
 
-GitHub: https://github.com/p1ne/mosecom
+GitHub: https://github.com/p1ne/mosecom-integration
 
 ## License
 
